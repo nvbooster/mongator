@@ -11,7 +11,7 @@
 
 namespace Mongator;
 
-use \MongoDB\Client as MongoDBClient;
+use MongoDB\Client as MongoDBClient;
 
 /**
  * Connection.
@@ -34,7 +34,7 @@ class Connection implements ConnectionInterface
      *
      * @param string $server  The server.
      * @param string $dbName  The database name.
-     * @param array  $options The \MongoClient options (optional).
+     * @param array  $options The \MongoDB\Client options (optional).
      *
      * @api
      */

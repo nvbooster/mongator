@@ -24,8 +24,6 @@ use Symfony\Component\EventDispatcher\EventDispatcher;
  */
 class Mongator
 {
-    const VERSION = '1.0.0-DEV';
-
     private $metadataFactory;
     private $fieldsCache;
     private $dataCache;

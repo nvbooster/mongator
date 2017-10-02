@@ -411,8 +411,8 @@ abstract class Repository
     {
         $command = array_merge($command, array(
             'mapreduce' => $this->getCollectionName(),
-            'map'       => is_string($map) ? new \MongoCode($map) : $map,
-            'reduce'    => is_string($reduce) ? new \MongoCode($reduce) : $reduce,
+            'map'       => is_string($map) ? new \MongoDB\BSON\Javascript($map) : $map,
+            'reduce'    => is_string($reduce) ? new \MongoDB\BSON\Javascript($reduce) : $reduce,
             'out'       => $out,
             'query'     => $query,
         ));

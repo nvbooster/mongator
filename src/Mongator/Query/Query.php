@@ -12,7 +12,6 @@
 namespace Mongator\Query;
 
 use Mongator\Repository;
-use MongoDB\BSON\ObjectID;
 
 /**
  * Query.
@@ -647,7 +646,7 @@ abstract class Query implements \Countable, \IteratorAggregate
      * Execute the query to the server, if text method was used will return an ArrayObject
      * if not will return a MongoCursor
      *
-     * @return \ArrayObject|\MongoCursor A iterable object with the data of the query.
+     * @return \ArrayObject|\MongoDB\Driver\Cursor A iterable object with the data of the query.
      */
     public function execute()
     {
