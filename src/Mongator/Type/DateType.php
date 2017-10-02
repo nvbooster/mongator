@@ -27,10 +27,8 @@ class DateType extends Type
      */
     public function toMongo($value)
     {
-        if ($value instanceof \DateTime) {
-            $value = $value->getTimestamp();
-        } elseif (is_string($value)) {
-            $value = strtotime($value);
+        if (is_string($value)) {
+            $value = new \DateTime($value);
         }
 
         return new UTCDateTime($value);
@@ -42,7 +40,7 @@ class DateType extends Type
     public function toPHP($value)
     {
         $date = new \DateTime();
-        $date->setTimestamp($value->sec);
+        $date->setTimestamp($value->sec)->setTimeZone(new \DateTimeZone( date_default_timezone_get()));
 
         return $date;
     }
@@ -52,7 +50,7 @@ class DateType extends Type
      */
     public function toMongoInString()
     {
-        return '%to% = %from%; if (%to% instanceof \DateTime) { %to% = %from%->getTimestamp(); } elseif (is_string(%to%)) { %to% = strtotime(%from%); } %to% = new \MongoDB\BSON\UTCDateTime(%to%);';
+        return "%to% = %from%; if (is_string(%from%)) { %to% = new \\DateTime(%from% ?: date('r',0)); } %to% = new \\MongoDB\\BSON\\UTCDateTime(%to%); ";
     }
 
     /**
@@ -60,6 +58,6 @@ class DateType extends Type
      */
     public function toPHPInString()
     {
-        return '%to% = %from%->toDateTime();';
+        return '%to% = %from%->toDateTime()->setTimeZone(new \DateTimeZone( date_default_timezone_get()));';
     }
 }

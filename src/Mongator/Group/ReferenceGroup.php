@@ -11,7 +11,6 @@
 
 namespace Mongator\Group;
 
-use Mongator\Archive;
 
 /**
  * ReferenceGroup.
@@ -74,7 +73,7 @@ class ReferenceGroup extends Group
     /**
      * {@inheritdoc}
      */
-    protected function doInitializeSaved(array $data)
+    protected function doInitializeSaved($data)
     {
         return $this->getParent()->getMongator()->getRepository($this->getDocumentClass())->findById($data);
     }

@@ -12,7 +12,6 @@
 namespace Mongator\Group;
 
 use Mongator\Archive;
-use Mongator\Document\Document;
 
 /**
  * AbstractGroup.
@@ -266,7 +265,7 @@ abstract class AbstractGroup implements \Countable, \IteratorAggregate
      *
      * @api
      */
-    protected function doInitializeSaved(array $data)
+    protected function doInitializeSaved($data)
     {
         return $data;
     }

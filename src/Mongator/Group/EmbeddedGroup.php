@@ -11,7 +11,6 @@
 
 namespace Mongator\Group;
 
-use Mongator\Archive;
 use Mongator\Document\Document;
 
 /**
@@ -69,7 +68,7 @@ class EmbeddedGroup extends Group
      *
      * @param array $data The saved data.
      */
-    public function setSavedData(array $data)
+    public function setSavedData($data)
     {
         $this->getArchive()->set('saved_data', $data);
     }
@@ -103,7 +102,7 @@ class EmbeddedGroup extends Group
     /**
      * {@inheritdoc}
      */
-    protected function doInitializeSaved(array $data)
+    protected function doInitializeSaved($data)
     {
         $documentClass = $this->getDocumentClass();
         $rap = $this->getRootAndPath();

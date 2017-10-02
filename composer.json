@@ -1,47 +1,46 @@
 {
-    "name": "mongator/mongator",
-    "type": "library",
-    "description": "Mongator is a easy, powerful and ultrafast ODM for PHP and MongoDB. (forked from Mandango project)",
-    "keywords": ["odm", "mongodb"],
-    "homepage": "http://mongator.com",
-    "license": "MIT",
-    "authors": [
-        {
-            "name":  "Máximo Cuadros",
-            "email": "mcuadros@gmail.com"
-        },
-        {
-            "name":  "Daniel Ripollés",
-            "email": "daniel@yunait.com"
-        },
-        {
-            "name":  "Pablo Díez",
-            "email": "pablodip@gmail.com"
-        }
-    ],
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/srggroup/mondator"
-        }
-    ],
-    "require": {
-        "php": "^7",
-        "mongator/mondator": "dev-master",
-        "symfony/event-dispatcher": "^2.8",
-        "mongodb/mongodb": "^1.1"
-    },
-    "require-dev": {
-        "athletic/athletic": "dev-master"
-    },
-    "suggest": {
-        "ext-apc": "Allow caching on APC",
-        "ext-redis": "Allow caching on Redis",
-        "ext-memcached": "Allow caching on Memcached"
-    },
-    "autoload": {
-        "psr-0": {
-            "Mongator\\": "src/"
-        }
-    }
+	"name" : "mongator/mongator",
+	"type" : "library",
+	"description" : "Mongator is a easy, powerful and ultrafast ODM for PHP and MongoDB. (forked from Mandango project)",
+	"keywords" : [
+		"odm",
+		"mongodb"
+	],
+	"homepage" : "http://mongator.com",
+	"license" : "MIT",
+	"authors" : [{
+			"name" : "Máximo Cuadros",
+			"email" : "mcuadros@gmail.com"
+		}, {
+			"name" : "Daniel Ripollés",
+			"email" : "daniel@yunait.com"
+		}, {
+			"name" : "Pablo Díez",
+			"email" : "pablodip@gmail.com"
+		}
+	],
+	"repositories" : [{
+			"type" : "vcs",
+			"url" : "https://github.com/srggroup/mondator"
+		}
+	],
+	"require" : {
+		"php" : "^7",
+		"mongator/mondator" : "dev-master",
+		"symfony/event-dispatcher" : "^2.8",
+		"mongodb/mongodb" : "^1.1"
+	},
+	"require-dev" : {
+		"athletic/athletic" : "dev-master"
+	},
+	"suggest" : {
+		"ext-apc" : "Allow caching on APC",
+		"ext-redis" : "Allow caching on Redis",
+		"ext-memcached" : "Allow caching on Memcached"
+	},
+	"autoload" : {
+		"psr-0" : {
+			"Mongator\\" : "src/"
+		}
+	}
 }

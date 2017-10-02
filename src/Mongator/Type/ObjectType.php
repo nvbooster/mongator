@@ -19,7 +19,7 @@ use MongoDB\Model\BSONDocument;
  *
  * @api
  */
-class ObjectType extends Type
+class ObjectType extends ArrayObjectType
 {
     /**
      * {@inheritdoc}
@@ -28,7 +28,7 @@ class ObjectType extends Type
     {
     	if(empty($value)) $value = [];
     	else if(!is_array($value)) $value = [$value];
-    	
+
     	return new BSONDocument($value);
     }
 
@@ -40,7 +40,7 @@ class ObjectType extends Type
 		/**
 		 * @var $value BSONDocument
 		 */
-        return $value->getArrayCopy();
+        return ArrayObjectType::BSONToArrayRecursive($value);
     }
 
     /**
@@ -56,6 +56,6 @@ class ObjectType extends Type
      */
     public function toPHPInString()
     {
-        return '%to% = %from%->getArrayCopy();';
+        return '%to% = \Mongator\Type\ArrayObjectType::BSONToArrayRecursive(%from%);';
     }
 }

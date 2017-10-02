@@ -13,7 +13,6 @@ namespace Mongator\Query;
 
 use Mongator\Repository;
 use MongoDB\BSON\ObjectID;
-use MongoDB\Driver\Cursor;
 
 /**
  * Query.
@@ -589,7 +588,7 @@ abstract class Query implements \Countable, \IteratorAggregate
      */
     public function createCursor()
     {
-        $cursor = $this->repository->getCollection()->find($this->criteria, $this->fields);
+        $cursor = $this->repository->getCollection()->find($this->criteria, $this->generateOptionsForFind());
 
         $result = new Result($cursor);
 
@@ -693,5 +692,21 @@ abstract class Query implements \Countable, \IteratorAggregate
     protected function throwBadReferenceException()
     {
         throw new \Exception('Document or ObjectID needed for reference query');
+    }
+
+    /**
+     * Generate options for collection find query
+     *
+     * @return array
+     */
+    protected function generateOptionsForFind()
+    {
+    	$options = [];
+    	if($this->fields) $options['projection'] = $this->fields;
+    	if($this->limit) $options['limit'] = $this->limit;
+    	if($this->skip) $options['skip'] = $this->skip;
+    	if($this->sort) $options['sort'] = $this->sort;
+
+    	return $options;
     }
 }
