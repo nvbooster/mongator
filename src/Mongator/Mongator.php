@@ -13,7 +13,8 @@ namespace Mongator;
 
 use Mongator\Cache\AbstractCache;
 use Mongator\Document\Event;
-use Symfony\Component\EventDispatcher\EventDispatcher;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Mongator\Document\Document;
 
 /**
  * Mongator.
@@ -33,7 +34,7 @@ class Mongator
     private $repositories;
     private $dispatcher;
 
-    static $doTranslate=false;
+    static public $doTranslate = false;
 
     /**
      * Constructor.
@@ -65,7 +66,7 @@ class Mongator
     /**
      * Returns the fields cache.
      *
-     * @return CacheInterface The cache.
+     * @return AbstractCache The cache.
      *
      * @api
      */
@@ -77,7 +78,7 @@ class Mongator
     /**
      * Returns the fields cache.
      *
-     * @return CacheInterface The cache.
+     * @return AbstractCache The cache.
      *
      * @api
      */
@@ -89,9 +90,9 @@ class Mongator
     /**
      * Sets the fields cache.
      *
-     * @return CacheInterface The cache.
-     *
      * @api
+     *
+     * @param AbstractCache $cache
      */
     public function setFieldsCache(AbstractCache $cache)
     {
@@ -101,9 +102,9 @@ class Mongator
     /**
      * Sets the data cache.
      *
-     * @return CacheInterface The cache.
-     *
      * @api
+     *
+     * @param AbstractCache $cache
      */
     public function setDataCache(AbstractCache $cache)
     {
@@ -365,6 +366,8 @@ class Mongator
 
     /**
      * Fixes all the missing references.
+     *
+     * @param int $documentsPerBatch
      */
     public function fixAllMissingReferences($documentsPerBatch = 1000)
     {
@@ -375,6 +378,8 @@ class Mongator
 
     /**
      * Access to UnitOfWork ->persist() method.
+     *
+     * @param iterable $documents
      *
      * @see UnitOfWork::persist()
      *
@@ -388,7 +393,9 @@ class Mongator
     /**
      * Access to UnitOfWork ->remove() method.
      *
-     * @see Mongator\UnitOfWork::remove()
+     * @param Document $document
+     *
+     * @see UnitOfWork::remove()
      *
      * @api
      */
@@ -400,7 +407,7 @@ class Mongator
     /**
      * Access to UnitOfWork ->commit() method.
      *
-     * @see Mongator\UnitOfWork::commit()
+     * @see UnitOfWork::commit()
      *
      * @api
      */
@@ -413,8 +420,10 @@ class Mongator
      * Set the EventDispatcher
      *
      * @api
+     *
+     * @param EventDispatcherInterface $dispatcher
      */
-    public function setEventDispatcher(EventDispatcher $dispatcher)
+    public function setEventDispatcher(EventDispatcherInterface $dispatcher)
     {
         $this->dispatcher = $dispatcher;
     }
@@ -423,7 +432,7 @@ class Mongator
      * Dispatch a DocumentEvent to the dispatcher
      *
      * @param string $name
-     * @param Mongator\Document\Event $event
+     * @param Event  $event
      *
      * @api
      */
