@@ -429,7 +429,7 @@ class Mongator
     }
 
     /**
-     * Dispatch a DocumentEvent to the dispatcher
+     * Dispatch a Event to the dispatcher
      *
      * @param string $name
      * @param Event  $event
