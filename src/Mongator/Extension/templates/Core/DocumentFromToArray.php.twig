@@ -3,13 +3,13 @@
     /**
      * Imports data from an array.
      *
-     * @param array|\MongoDB\BSON\BSONDocument|\MongoDB\BSON\BSONArray $array An array.
+     * @param array|\MongoDB\Model\BSONDocument|\MongoDB\Model\BSONArray $array An array.
      *
      * @return \{{ class }} The document (fluent interface).
      */
     public function fromArray($array)
     {
-        if($array instanceof \MongoDB\BSON\BSONDocument || $array instanceof \MongoDB\BSON\BSONArray){
+        if($array instanceof \MongoDB\Model\BSONDocument || $array instanceof \MongoDB\Model\BSONArray){
             $array = $array->getArrayCopy();
         }
 
