@@ -21,6 +21,10 @@
 
 {% endif %}
 {% else %}
+{% if config_class._has_references %}
+        $this->saveReferences();
+        $this->updateReferenceFields();
+{% endif %}
         $rap = $this->getRootAndPath();
 
         if ($isNew) {

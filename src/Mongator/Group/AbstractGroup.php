@@ -291,12 +291,6 @@ abstract class AbstractGroup implements \Countable, \IteratorAggregate
     {
         $this->clearAdd();
 
-
-	    if($documents === []){
-	        $this->clear();
-		    return;
-	    }
-
         $this->remove($this->getSaved());
 
         $this->clearRemove();
