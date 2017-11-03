@@ -49,7 +49,7 @@ class DateType extends Type
      */
     public function toMongoInString()
     {
-        return "%to% = %from%; if (is_string(%from%)) { %to% = new \\DateTime(%from% ?: date('r',0)); } %to% = new \\MongoDB\BSON\\UTCDateTime(%to%); ";
+        return "%to% = %from%; if (is_string(%from%)) { %to% = new \\DateTime(%from% ?: date('r',0)); } %to% = new \\MongoDB\\BSON\\UTCDateTime(%to%); ";
     }
 
     /**
