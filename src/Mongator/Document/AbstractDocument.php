@@ -21,7 +21,7 @@ use Mongator\Mongator;
  * @author Máximo Cuadros <mcuadros@gmail.com>
  *
  * @api
- */ 
+ */
 abstract class AbstractDocument
 {
     private $mongator;
@@ -64,7 +64,7 @@ abstract class AbstractDocument
         $rc = new \ReflectionObject($this);
 
         $names = array();
-        $filter = array('Mongator');
+        $filter = array('mongator', 'archive');
 
         while ($rc instanceof \ReflectionClass) {
             foreach ($rc->getProperties() as $prop) {
