@@ -12,6 +12,7 @@
 namespace Mongator;
 
 use Mongator\Repository;
+use MongoDB\Model\IndexInfo;
 
 /**
  * Query.
@@ -184,12 +185,12 @@ class IndexManager
         return $this->generateIndexKey($index['keys'], $index['options']);
     }
 
-    private function generateIndexKeyFromDB(array $index)
+    private function generateIndexKeyFromDB(IndexInfo $index)
     {
         return $this->generateIndexKey($index['key'], $index);
     }
 
-    private function generateIndexKey(array $keys, array $options)
+    private function generateIndexKey(array $keys, $options)
     {
         if ( isset($options['weights']) ) {
             $hash[] = 'text_1';
