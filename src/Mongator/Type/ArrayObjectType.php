@@ -11,6 +11,10 @@
 
 namespace Mongator\Type;
 
+use MongoDB\Model\BSONArray;
+use MongoDB\Model\BSONDocument;
+
+
 /**
  * ArrayObjectType.
  *

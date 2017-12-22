@@ -11,6 +11,8 @@
 
 namespace Mongator\Type;
 
+use MongoDB\BSON\Binary;
+
 /**
  * BinDataType.
  *
@@ -29,7 +31,7 @@ class BinDataType extends Type
             $value = file_get_contents($value);
         }
 
-        return new \MongoDB\BSON\Binary($value,  \MongoDB\BSON\Binary::TYPE_GENERIC);
+        return new Binary($value, Binary::TYPE_GENERIC);
     }
 
     /**
