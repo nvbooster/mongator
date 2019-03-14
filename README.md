@@ -1,6 +1,6 @@
 ![Mongator ODM](http://s8.postimg.org/pgkij7g6d/logo.png)
 
-Mongator [![Build Status](https://secure.travis-ci.org/mongator/mongator.png)](http://travis-ci.org/mongator/mongator)
+Mongator
 ==============================
 
 Mongator is to the ODMs what Mongo is to databases.
@@ -29,8 +29,8 @@ Mongator is to the ODMs what Mongo is to databases.
 Requirements
 ------------
 
-* PHP 5.3.x;
-* ext-mongo > 1.2.11
+* PHP > 7.0;
+* ext-mongo > 1.3
 
 
 Installation
@@ -42,7 +42,7 @@ You can see [package information on Packagist.](https://packagist.org/packages/m
 ```JSON
 {
     "require": {
-        "mongator/mongator": "1.4.*"
+        "mongator/mongator": "~2"
     }
 }
 ```
@@ -81,28 +81,6 @@ $article = $query->one(); // retrieving one result  explicitly
 $nb = $query->count();
 $nb = count($query); // Countable interface
 ```
-
-Tests
------
-
-Tests are in the `tests` folder.
-To run them, you need PHPUnit.
-Example:
-
-    $ phpunit --configuration phpunit.xml.dist
-
-
-Benchmarking
----------
-
-A small suite of benchmarking is included with the package, you can run the suite with this command:
-
-``` bash
-php ./vendor/bin/athletic -b tests/bootstrap.php  -p tests/Mongator/Benchmarks/
-```
-
-Some results can be find at: https://gist.github.com/mcuadros/9560576
-
 
 License
 -------
