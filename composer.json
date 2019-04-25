@@ -28,15 +28,15 @@
 		"php" : "^7",
 		"mongator/mondator" : "^2.0",
 		"symfony/event-dispatcher" : "^2.8||~3.0||~4.0",
-		"mongodb/mongodb" : "^1.1"
+		"mongodb/mongodb" : "^1.1",
+		"pagerfanta/pagerfanta" : "^1.1.0|^2.0.0"
 	},
 	"require-dev" : {
-		"athletic/athletic" : "dev-master"
+		"athletic/athletic" : "dev-master",
+		"pagerfanta/pagerfanta": "^1.1.0|^2.0.0"
 	},
 	"suggest" : {
-		"ext-apc" : "Allow caching on APC",
-		"ext-redis" : "Allow caching on Redis",
-		"ext-memcached" : "Allow caching on Memcached"
+		"pagerfanta/pagerfanta" : "Allow paginating mongator documents"
 	},
 	"autoload" : {
 		"psr-0" : {
